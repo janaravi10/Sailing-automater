@@ -1,0 +1,17 @@
+.small-btn {
+    padding: 0.2rem;
+    font-size: small;
+    margin: 10px;
+}
+
+* {
+    font-family: "verdana", Times, serif;
+}
+
+.danger {
+    color: rgb(238, 0, 0);
+}
+
+.non_danger {
+    color: green;
+}

@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Sailing Automater",
+  "version": "1.0.0",
+  "description": "Sample Chrome extension",
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://cs.shipsoft.co/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "action": {
+    
+    "default_title": "SAILING AUTOMATER"
+  },
+  "icons": {
+    "16": "hello.png",
+    "48": "hello.png",
+    "128": "hello.png"
+  }
+}

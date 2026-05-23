@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Extension Popup</title>
+    <link rel="stylesheet" href="pico/css/pico.min.css">
+    <script src="sheetJS.js"></script>
+    <script src="popup.js"></script>
+    <link rel="stylesheet" href="popup.css">
+
+</head>
+
+<body>
+    <main class="container">
+        <h2>Sailing automater <span style="cursor: pointer;" id="startTutorial">&#128712;</span></h2>
+        <div style="display: flex; align-items: center; ">
+
+            <input type="file" id="ssInput" class="small-btn" style="width: 300px; margin: 0px;">
+            <button id="ssLoad" class="small-btn" disabled>Load Excel</button>
+            <button id="ssUpdate" class="small-btn" style=" margin-left: 20px;background-color: rgb(1, 105, 1);">UPDATE
+                SAILING</button>
+            <!-- <label style="margin: 0px 10px;">
+                <input type="checkbox" name="valid" aria-invalid="false" />
+                Valid
+            </label> -->
+
+            <button id="connectToShipSoft" class="small-btn">Connect to ShipSoft</button>
+            <fieldset style="width: auto;margin: 0px 10px;">
+                <!-- <legend>Consol mode:</legend> -->
+                <input type="checkbox" id="coloadCheckbox" name="coload" />
+                <label htmlFor="coload">Coload</label>
+                <input type="checkbox" id="consolCheckbox" name="consol" />
+                <label htmlFor="consol">Consol</label>
+            </fieldset>
+            <span style="padding: 10px; display: none;" id="show_alert">Unsupported file</span>
+
+        </div>
+        <br>
+
+        <dialog id="alert_dialog">
+            <article>
+                <h3 id="dialog_header">Vessel Not available</h3>
+                <p id="dialog_desc">
+                    Do you want to create vessel automatically ?
+                </p>
+                <footer>
+                    <button class="secondary" id="dialog_sec">
+                        Skip
+                    </button>
+                    <button id="dialog_pry">Create</button>
+                </footer>
+            </article>
+        </dialog>
+
+        <dialog id="tutorial">
+            <article>
+                <h4>Ensure below column present in excel file before uploading</h4>
+                <!-- <p>
+                    Please find below column header which are supported in the excel file
+                </p> -->
+                <ul>
+                    <li>VESSEL</li>
+                    <li>VOYAGE</li>
+                    <li>POD_TEXT</li>
+                    <li>POD_CODE</li>
+                    <li>ETA_POL (optional) if ETD_POL is present same will be used for ETA_POL</li>
+                    <li>ETD_POL (optional) if ETA_POL is present same will be used for ETD_POL</li>
+                    <li>ETA_POD</li>
+                    <li>ETA_CUTOFF (optional) if not present system use one day before ETD or ETA POL</li>
+                    <li>CARRIER</li>
+                </ul>
+                <footer>
+                    <button class="secondary" style="padding: 5px; font-size: 0.7rem;" id="tutorialClose">
+                        Close
+                    </button>
+                    <button style="padding: 5px; font-size: 0.7rem;" id="downloadTemplate">Download template</button>
+                </footer>
+            </article>
+        </dialog>
+
+    </main>
+
+    <main class="container" id="ssList"></main>
+
+
+</body>
+
+</html>
